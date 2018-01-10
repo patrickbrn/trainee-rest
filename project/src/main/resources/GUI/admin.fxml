@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+<AnchorPane xmlns:fx="http://javafx.com/fxml/1" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/9"
+            fx:controller="com.valtech.azubi.bankanwendung.server.gui.Controller.Admin">
+   <children>
+      <AnchorPane prefHeight="542.0" prefWidth="737.0">
+         <children>
+            <AnchorPane layoutX="14.0" layoutY="14.0" prefHeight="69.0" prefWidth="717.0" style="-fx-background-color: lightgrey;">
+               <children>
+                  <Label layoutX="14.0" layoutY="19.0" prefHeight="27.0" prefWidth="174.0" text="ServerControl" textFill="#a80000">
+                     <font>
+                        <Font name="Impact" size="25.0" />
+                     </font>
+                  </Label>
+                  <ToggleButton fx:id="tog_updown" layoutX="620.0" layoutY="22.0" mnemonicParsing="false" style="-fx-background-color: red;" text="Up/Down" textFill="WHITE" />
+               </children>
+            </AnchorPane>
+            <TabPane layoutX="14.0" layoutY="105.0" prefHeight="418.0" prefWidth="717.0" style="-fx-background-color: lightgrey;" tabClosingPolicy="UNAVAILABLE">
+              <tabs>
+                <Tab text="Active Sessions">
+                  <content>
+                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="381.0" prefWidth="701.0">
+                           <children>
+                              <TableView fx:id="SessionTable" layoutX="7.0" layoutY="31.0" prefHeight="305.0" prefWidth="703.0">
+                                <columns>
+                                  <TableColumn prefWidth="188.0" text="SessID">
+                                    <cellValueFactory>
+                                        <PropertyValueFactory property = "sessionID"/>
+                                    </cellValueFactory>
+                                    </TableColumn>
+                                  <TableColumn minWidth="0.0" prefWidth="68.0" text="UserID">
+                                  <cellValueFactory>
+                                      <PropertyValueFactory property="vonBenutzer"/>
+                                  </cellValueFactory>
+                                  </TableColumn>
+                                    <TableColumn minWidth="0.0" prefWidth="106.0" text="Username" />
+                                    <TableColumn minWidth="0.0" prefWidth="160.0" text="Date" >
+                                        <cellValueFactory>
+                                            <PropertyValueFactory property="endDate"/>
+                                        </cellValueFactory>
+                                        </TableColumn>
+                                    <TableColumn minWidth="0.0" prefWidth="160.0" text="IP adress">
+                                    <cellValueFactory>
+                                        <PropertyValueFactory property="ipAddress"/>
+                                    </cellValueFactory>
+                                    </TableColumn>
+                                </columns>
+                              </TableView>
+                              <Button fx:id="btn_kick" layoutX="595.0" layoutY="344.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="108.0" text="Kick!" />
+                              <Button fx:id="btn_ban" layoutX="487.0" layoutY="344.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="104.0" text="Ban!" textAlignment="CENTER" />
+                              <Button fx:id="btn_reload" layoutX="7.0" onAction="#reload" layoutY="344.0" mnemonicParsing="false" style="-fx-background-color: lightblue;" text="reload" textFill="WHITE" />
+                           </children>
+                        </AnchorPane>
+                  </content>
+                </Tab>
+                <Tab text="Blacklist">
+                  <content>
+                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                  </content>
+                </Tab>
+              </tabs>
+            </TabPane>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>
